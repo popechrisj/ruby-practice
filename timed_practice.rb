@@ -16,8 +16,6 @@ module Palindrome
       first_half << new_word[i]
       second_half << new_word[-i-1]
     end
-    print first_half
-    print second_half
     if first_half == second_half
       return true
     else
