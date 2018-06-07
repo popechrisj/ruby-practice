@@ -49,7 +49,6 @@ puts path.current_path
 should display '/a/b/c/x'.
 """
 class Path
-class Path
 
   def initialize(path)
     @current_path = path
