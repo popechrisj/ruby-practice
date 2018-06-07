@@ -80,7 +80,3 @@ end
 path = Path.new('/a/b/c/d')
 path.cd('../x')
 puts path.current_path
-
-path = Path.new('/a/b/c/d')
-path.cd('../x')
-puts path.current_path
