@@ -49,6 +49,7 @@ puts path.current_path
 should display '/a/b/c/x'.
 """
 class Path
+class Path
 
   def initialize(path)
     @current_path = path
@@ -59,10 +60,27 @@ class Path
   end
 
   def cd(new_path)
-
+	if new_path[0..2] == '../'
+	  parent_directory = @current_path.reverse.partition('/').last.reverse 
+      @current_path = parent_directory + '/' + new_path.reverse.partition('/').first
+    elsif new_path[0..1] == '..'
+      parent_directory = @current_path.reverse.partition('/').last.reverse 
+      @current_path = parent_directory 
+    elsif new_path[0] ==  '/'
+	  @current_path = new_path 
+	elsif new_path[0].between?("A", "z")
+      parent_directory = @current_path
+	  @current_path = parent_directory + '/' + new_path
+	else 
+	  puts "Error"
+	end 
   end
   
 end
+
+path = Path.new('/a/b/c/d')
+path.cd('../x')
+puts path.current_path
 
 path = Path.new('/a/b/c/d')
 path.cd('../x')
